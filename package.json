@@ -3,14 +3,32 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "dev": "nuxt dev --dotenv .env.development -p 3001",
+    "build": "nuxt build --dotenv .env.production",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "nuxt": "^3.12.4",
-    "vue": "latest"
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "eslint": "^8.57.0",
+    "husky": "^8.0.0",
+    "less": "^4.2.0",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vue-tsc": "^2.0.28"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx,json}": "eslint --fix"
   }
 }

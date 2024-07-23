@@ -18,3 +18,5 @@ logs
 .fleet
 .idea
 
+# Other
+package-lock.json
