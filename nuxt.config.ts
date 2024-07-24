@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'nuxt3+ts+i18n'
+    }
+  },
   runtimeConfig: {
     // 只在服务端使用的键
     apiSecret: '',
@@ -12,7 +17,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint'],
   typescript: {
     shim: false,
-    typeCheck: true
+    typeCheck: true //构建时启用类型检查
   },
   vite: {
     css: {

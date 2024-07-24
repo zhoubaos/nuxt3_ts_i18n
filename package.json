@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev --dotenv .env.development -p 3001",
+    "dev": "nuxt dev --dotenv .env.development -p 8081",
     "build": "nuxt build --dotenv .env.production",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
