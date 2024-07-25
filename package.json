@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.3.13",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "eslint": "^8.57.0",
     "husky": "^8.0.0",
     "less": "^4.2.0",

@@ -1,8 +1,14 @@
 <template>
-  <div>
+  <div class="text-blue text-">
     我是首页
-
-    <button @click="check">切换布局</button>
+    <img
+      src="@/assets/images/user.png"
+      alt="" />
+    <button
+      class="btn"
+      @click="check">
+      切换布局
+    </button>
   </div>
 </template>
 

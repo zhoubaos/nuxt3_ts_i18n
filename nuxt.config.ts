@@ -1,8 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
+    // 给每个页面添加一个head配置
     head: {
-      title: 'nuxt3+ts+i18n'
+      title: 'nuxt3+ts+i18n',
+      meta: [
+        {
+          name: 'description',
+          content: '基于nuxt3+ts+i18n搭建的开发模版'
+        }
+      ]
     }
   },
   runtimeConfig: {
@@ -14,10 +21,10 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/styles/common.less'],
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss'],
   typescript: {
     shim: false,
-    typeCheck: true //构建时启用类型检查
+    typeCheck: true //启动项目时开始类型检查
   },
   vite: {
     css: {
