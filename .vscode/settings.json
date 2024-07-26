@@ -1,5 +1,6 @@
 {
   "recommendations": ["Vue.volar"],
+  "css.customData": [".vscode/tailwind.json"],
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit"

@@ -1,5 +1,7 @@
 <template>
   <div class="default-layout-container">
+    <app-header />
+
     默认布局
     <slot />
   </div>

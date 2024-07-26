@@ -1,5 +1,7 @@
 <template>
-  <div>111</div>
+  <div>
+    <lazy-list-com />
+  </div>
 </template>
 
 <script setup lang="ts">

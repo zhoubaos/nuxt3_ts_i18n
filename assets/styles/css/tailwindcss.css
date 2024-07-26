@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* // 设置全局性的样式，确保整个项目的基础样式一致，如字体、颜色等。 */
+@layer base {
+  /* eg */
+  html {
+    @apply text-base sm:text-sm;
+  }
+}
+
+/* // 创建和管理复杂的 UI 组件，减少重复代码。 */
+@layer components {
+  /* eg */
+  .card {
+    @apply border rounded-lg shadow;
+    span {
+      @apply text-[red];
+    }
+  }
+}
+
+/* // 快速调整和定制页面中的具体样式，保持高灵活性 */
+@layer utilities {
+  /* eg */
+  .text-center {
+    text-align: center;
+  }
+}

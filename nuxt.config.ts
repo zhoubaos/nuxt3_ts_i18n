@@ -20,8 +20,25 @@ export default defineNuxtConfig({
       baseUrl: process.env.NUXT_BASE_URL
     }
   },
-  css: ['~/assets/styles/common.less'],
-  modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss'],
+  css: ['~/assets/styles/less/common.less', './assets/styles/css/index.css'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/tailwindcss',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore']
+      }
+    ],
+    '@pinia-plugin-persistedstate/nuxt'
+  ],
+  components: [
+    {
+      path: '~/components/layout',
+      pathPrefix: false
+    }
+  ],
+
   typescript: {
     shim: false,
     typeCheck: true //启动项目时开始类型检查
@@ -31,7 +48,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         less: {
           modifyVars: {
-            hack: `true; @import (reference) "@/assets/styles/vars.less";`
+            hack: `true; @import (reference) "@/assets/styles/less/vars.less";` //给每个less文件注入全局变量文件
           }
         }
       }
