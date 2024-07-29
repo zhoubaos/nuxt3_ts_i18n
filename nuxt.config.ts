@@ -36,6 +36,10 @@ export default defineNuxtConfig({
     {
       path: '~/components/layout',
       pathPrefix: false
+    },
+    {
+      path: '~/components',
+      pathPrefix: true
     }
   ],
 

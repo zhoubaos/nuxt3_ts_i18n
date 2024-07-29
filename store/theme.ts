@@ -1,5 +1,14 @@
+// 动画的起止坐标
+interface StartAndEndCoordinate {
+  sx: number; // 动画的起点x坐标
+  sy: number; // 动画的起点y坐标
+  ex: number; // 动画的终点x坐标
+  ey: number; // 动画的终点y坐标
+}
+
 interface ThemeState {
   theme: 'light' | 'dark';
+  coor: StartAndEndCoordinate;
 }
 
 /**
@@ -7,20 +16,39 @@ interface ThemeState {
  */
 export const useThemeStore = defineStore('theme', {
   state: (): ThemeState => ({
-    theme: 'light'
+    theme: 'light',
+    coor: {
+      sx: 0,
+      sy: 0,
+      ex: 0,
+      ey: 0
+    }
   }),
+  getters: {
+    radius: (state) => {
+      const { sx, sy, ex, ey } = state.coor;
+      return Math.hypot(ex - sx, ey - sy);
+    }
+  },
   actions: {
     // 初始化
-    initTheme() {
+    initTheme(coor: Partial<StartAndEndCoordinate> = {}) {
+      Object.assign(this.coor, coor);
       this.setHtmlTheme();
     },
-    // 切换系统主题
-    toggleTheme() {
-      this.setTheme(this.theme === 'light' ? 'dark' : 'light');
-    },
-    setTheme(theme: 'light' | 'dark') {
-      this.theme = theme;
-
+    /**
+     * @desc 切换当前主题
+     * @default 默认值
+     * {
+     *  sx: 0,
+     *  sy: 0,
+     *  ex: window.innerWidth,
+     *  ey: window.innerHeight
+     * }
+     */
+    toggleTheme(coor: Partial<StartAndEndCoordinate> = {}) {
+      this.theme = this.theme === 'light' ? 'dark' : 'light';
+      Object.assign(this.coor, coor);
       if (!document.startViewTransition) {
         this.setHtmlTheme();
       } else {
@@ -39,47 +67,42 @@ export const useThemeStore = defineStore('theme', {
 
     // 动画切换主题
     animationToggleTheme() {
+      const { sx, sy, ex, ey } = this.coor;
+
       // @ts-ignore
       const transition = document.startViewTransition(() => {
         this.setHtmlTheme();
       });
 
       transition.ready.then(() => {
-        console.log(this.theme);
-
         this.theme === 'light' ? forward() : reverse();
       });
 
       // 正向
-      function forward() {
-        const radius = Math.hypot(window.innerWidth, window.innerHeight);
+      const forward = () => {
         document.documentElement.animate(
           {
-            clipPath: [`circle(0% at ${0}px ${0}px)`, `circle(${radius}px at ${0}px ${0}px)`]
+            clipPath: [`circle(0% at ${sx}px ${sy}px)`, `circle(${this.radius}px at ${sx}px ${sy}px)`]
           },
           {
             duration: 400,
             pseudoElement: '::view-transition-new(root)' //设置动画的伪元素
           }
         );
-      }
+      };
 
       // 反向
-      function reverse() {
-        const radius = Math.hypot(window.innerWidth, window.innerHeight);
+      const reverse = () => {
         document.documentElement.animate(
           {
-            clipPath: [
-              `circle(0% at ${window.innerWidth}px ${window.innerHeight}px)`,
-              `circle(${radius}px at ${window.innerWidth}px ${window.innerHeight}px`
-            ]
+            clipPath: [`circle(0% at ${ex}px ${ey}px)`, `circle(${this.radius}px at ${ex}px ${ey}px`]
           },
           {
             duration: 400,
             pseudoElement: '::view-transition-new(root)' //设置动画的伪元素
           }
         );
-      }
+      };
     }
   },
   // 默认存储到 cookie，详情：https://prazdevs.github.io/pinia-plugin-persistedstate/zh/frameworks/nuxt-3.html

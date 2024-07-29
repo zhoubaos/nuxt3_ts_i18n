@@ -27,8 +27,32 @@ module.exports = {
     },
     //
     fontSize: {
-      sm: ['28px', '40px'],
-      base: ['14px', '20px'], // fontSize:14px lineHeight:20px
+      sm: ['28px', '40px'], // text-sm => fontSize:28px lineHeight:40px
+      base: ['14px', '20px'],
+      20: '20px' // text-20 => fontSize:20px;
+    },
+
+    //
+    spacing: {
+      1: '1px',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+      5: '5px',
+      6: '6px',
+      7: '7px',
+      8: '8px',
+      9: '9px',
+      10: '10px',
+      11: '11px',
+      12: '12px',
+      13: '13px',
+      14: '14px',
+      15: '15px',
+      16: '16px',
+      17: '17px',
+      18: '18px',
+      19: '19px',
       20: '20px'
     },
 
