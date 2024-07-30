@@ -14,10 +14,7 @@
 @layer components {
   /* eg */
   .card {
-    @apply border rounded-lg shadow;
-    span {
-      @apply text-[red];
-    }
+    @apply rounded-10 shadow;
   }
 }
 

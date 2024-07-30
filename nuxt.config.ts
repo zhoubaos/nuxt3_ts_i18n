@@ -1,3 +1,5 @@
+import { resolve } from 'url';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -20,7 +22,7 @@ export default defineNuxtConfig({
       baseUrl: process.env.NUXT_BASE_URL
     }
   },
-  css: ['~/assets/styles/less/common.less', './assets/styles/css/index.css'],
+  css: ['~/assets/styles/less/common.less', '~/assets/styles/css/index.css'],
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
@@ -46,6 +48,11 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
     typeCheck: true //启动项目时开始类型检查
+  },
+
+  devServer: {
+    host: '0.0.0.0',
+    port: 8081
   },
   vite: {
     css: {

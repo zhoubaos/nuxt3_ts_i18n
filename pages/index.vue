@@ -5,9 +5,13 @@
       src="@/assets/images/user.png"
       alt="" />
 
-    <span class="card text-[2rem]">当前主题：{{ themeStore.theme }}</span>
-    <div class="text-textColor bg-bgColor dark:text-[30px]">我的水电费是的</div>
+    <div class="card text-[2rem]">
+      <span>当前主题：{{ themeStore.theme }}</span>
+    </div>
+    <div class="w-2 rounded-6 p-sm text-textColor rounded-[20px] my-20 bg-bgColor dark:text-[30px]">我的水电费是的</div>
     <div @click="navigateTo('/list')">去list页</div>
+
+    <div class="leading-[18px] text-12">测试字体</div>
   </div>
 </template>
 

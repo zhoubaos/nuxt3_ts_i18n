@@ -16,6 +16,8 @@ useHead({
 });
 
 const user = useCookie('user');
+
+console.log(9999);
 </script>
 
 <style scoped></style>
