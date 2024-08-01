@@ -12,7 +12,8 @@ export default defineNuxtConfig({
           content: '基于nuxt3+ts+i18n搭建的开发模版'
         }
       ]
-    }
+    },
+    
   },
   runtimeConfig: {
     // 只在服务端使用的键

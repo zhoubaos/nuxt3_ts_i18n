@@ -1,11 +1,13 @@
 :root {
   color-scheme: light;
+  --color-white: #fff;
+  --color-black: #000;
   --color-primary: #1ac3a0;
-  --text-color: #0f172a;
-  --bg-color: #f8fafc;
+  --text-color-primary: #0f172a;
+  --bg-color-primary: #f8fafc;
 }
 .dark {
   color-scheme: dark;
-  --text-color: #fff;
-  --bg-color: #0f172a;
+  --text-color-primary: #fff;
+  --bg-color-primary: #0f172a;
 }

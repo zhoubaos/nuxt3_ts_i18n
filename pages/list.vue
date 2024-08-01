@@ -7,6 +7,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  pageTransition: { name: 'page', mode: 'out-in' }
+});
+
 useHead({
   title: 'dd',
   meta: [
@@ -16,8 +20,6 @@ useHead({
 });
 
 const user = useCookie('user');
-
-console.log(9999);
 </script>
 
 <style scoped></style>

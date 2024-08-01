@@ -16,6 +16,9 @@
   .card {
     @apply rounded-10 shadow;
   }
+  .text-color {
+    @apply text-textColor;
+  }
 }
 
 /* // 快速调整和定制页面中的具体样式，保持高灵活性 */
